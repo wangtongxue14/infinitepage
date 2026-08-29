@@ -1,11 +1,29 @@
 /* ===== css/style.css ===== */
 
+/* ----- 页面整体布局 ----- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f7fb;
+    color: #333;
+    line-height: 1.8;
+    font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+}
+
 /* ----- 头部 ----- */
 header {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
     padding: 60px 20px 80px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 header h1 {
@@ -18,36 +36,6 @@ header p {
     opacity: 0.9;
 }
 
-/* ----- 页面整体布局 ----- */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* ----- 主要内容容器 ----- */
-.container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    flex: 1;  /* 让内容区域自动撑开 */
-}
-
-/* ----- 页脚固定底部 ----- */
-footer {
-    background-color: #1e3c72;
-    color: white;
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: auto; 
-    width: 100%;
-}
 /* ----- 导航 ----- */
 nav {
     background-color: #fff;
@@ -56,6 +44,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 999;
+    flex-shrink: 0;
 }
 
 .nav-container {
@@ -83,6 +72,8 @@ nav a:hover {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
+    flex: 1;  /* 自动撑开，把footer推到底部 */
+    width: 100%;
 }
 
 /* ----- 区块卡片 ----- */
@@ -161,13 +152,15 @@ button:hover {
     color: #1e3c72;
 }
 
-/* ----- 页脚 ----- */
+/* ----- 页脚固定底部 ----- */
 footer {
     background-color: #1e3c72;
     color: white;
     text-align: center;
     padding: 25px 20px;
-    margin-top: 40px;
+    margin-top: auto;  /* 关键：自动推到页面底部 */
+    flex-shrink: 0;
+    width: 100%;
 }
 
 /* ----- 响应式 ----- */
