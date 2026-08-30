@@ -9,19 +9,20 @@
 </head>
 <body>
     <header>
-        <h1> 光明中学</h1>
+        <h1>🏫 光明中学</h1>
         <p>立德树人 · 知行合一 · 让每个生命都发光</p>
     </header>
 
-    <nav>
+    <!-- 导航栏 -->
+    <nav id="mainNav">
         <div class="nav-container">
             <a href="index.html">首页</a>
+            <a href="about.html">关于我们</a>
             <a href="#about">学校介绍</a>
             <a href="#features">办学特色</a>
             <a href="#teachers">师资团队</a>
             <a href="#news">校园新闻</a>
             <a href="#contact">联系我们</a>
-            <a href="about.html">关于我们</a>
         </div>
     </nav>
 
@@ -32,7 +33,12 @@
             <p>光明中学是一所历史悠久、底蕴深厚的省级示范高中。学校始终坚持"立德树人"的根本任务，以"知行合一"为校训，致力于培养德智体美劳全面发展的优秀人才。</p>
             <p style="margin-top: 15px;">在这里，每一位学生都能找到属于自己的成长方向，每一位教师都用爱与智慧点亮学生的未来。我们相信，教育不仅是知识的传授，更是生命的唤醒与塑造。</p>
             <button id="welcomeBtn">点击查看校训精神</button>
-            <div id="tipBox" class="tip-box"></div>
+            <div id="tipBox" class="tip-box" style="display:none;">
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                    <span style="flex:1;">明德、博学、笃行、致远 —— 以德为先，以学为本，知行合一，志存高远！</span>
+                    <button id="closeTipBtn" style="margin:0;padding:4px 14px;background:#e8b931;color:#1e3c72;font-size:0.85rem;border:none;border-radius:20px;cursor:pointer;font-weight:600;">收起 ↑</button>
+                </div>
+            </div>
         </div>
 
         <!-- 学校介绍 -->
@@ -60,19 +66,19 @@
             <h2 class="section-title">办学特色</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3> 优质课程</h3>
+                    <h3>📚 优质课程</h3>
                     <p>国家课程与校本课程相结合，开设科技创新、人文素养、艺术审美、体育健康四大类选修课程。</p>
                 </div>
                 <div class="info-card">
-                    <h3> 卓越师资</h3>
+                    <h3>🏅 卓越师资</h3>
                     <p>拥有省级骨干教师15人，市级学科带头人28人，高级教师占比超过45%。</p>
                 </div>
                 <div class="info-card">
-                    <h3> 多元发展</h3>
+                    <h3>🌱 多元发展</h3>
                     <p>学生社团30余个，涵盖科创、文学、艺术、体育等领域，为每个学生提供展示舞台。</p>
                 </div>
                 <div class="info-card">
-                    <h3> 辉煌成绩</h3>
+                    <h3>🏆 辉煌成绩</h3>
                     <p>高考一本率连续五年保持在90%以上，学科竞赛获国家级奖项120余人次。</p>
                 </div>
             </div>
@@ -117,10 +123,10 @@
         <div class="section" id="contact">
             <h2 class="section-title">联系我们</h2>
             <p>欢迎广大学生和家长来校参观咨询，了解更多学校信息。</p>
-            <p style="margin-top: 10px;"> 电话：010-8888 6666</p>
-            <p> 邮箱：office@gmzx.edu</p>
-            <p> 地址：光明市阳光大道 88 号</p>
-            <p> 网址：www.gmzx.edu</p>
+            <p style="margin-top: 10px;">📞电话：010-8888 6666</p>
+            <p>📧 邮箱：office@gmzx.edu</p>
+            <p>📍 地址：光明市阳光大道 88 号</p>
+            <p>🌐 网址：www.gmzx.edu</p>
         </div>
     </div>
 
