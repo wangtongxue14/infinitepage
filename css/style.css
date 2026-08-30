@@ -1,7 +1,8 @@
 /* ===== css/style.css ===== */
 
 /* ----- 页面整体布局 ----- */
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -39,7 +40,7 @@ header p {
 /* ----- 导航栏（默认样式） ----- */
 nav {
     background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     padding: 0 20px;
     position: relative;
     z-index: 999;
@@ -53,7 +54,7 @@ nav.fixed {
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     animation: slideDown 0.4s ease;
 }
 
@@ -114,7 +115,7 @@ nav a:hover {
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
 }
 
 .section-title {
