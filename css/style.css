@@ -36,15 +36,47 @@ header p {
     opacity: 0.9;
 }
 
-/* ----- 导航 ----- */
+/* ----- 导航栏（默认样式） ----- */
 nav {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 0 20px;
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 999;
     flex-shrink: 0;
+    transition: box-shadow 0.3s ease;
+}
+
+/* ===== 导航栏固定状态（由JS添加类） ===== */
+nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== 导航栏固定时的占位元素 ===== */
+.nav-placeholder {
+    display: block;
+    height: 0;
+    transition: height 0.3s ease;
+}
+
+.nav-placeholder.active {
+    height: 62px;
 }
 
 .nav-container {
@@ -72,7 +104,7 @@ nav a:hover {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
-    flex: 1;  /* 自动撑开，把footer推到底部 */
+    flex: 1;
     width: 100%;
 }
 
@@ -158,7 +190,7 @@ footer {
     color: white;
     text-align: center;
     padding: 25px 20px;
-    margin-top: auto;  /* 关键：自动推到页面底部 */
+    margin-top: auto;
     flex-shrink: 0;
     width: 100%;
 }
@@ -190,37 +222,4 @@ footer {
     .section-title {
         font-size: 1.4rem;
     }
-}
-html {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f5f7fb;
-    color: #333;
-    line-height: 1.8;
-    font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
-}
-
-/* ===== 内容区域自动撑开 ===== */
-.container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    flex: 1;        
-    width: 100%;
-}
-
-/* ===== 页脚自动吸附底部 ===== */
-footer {
-    background-color: #1e3c72;
-    color: white;
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: auto;   
-    flex-shrink: 0;
-    width: 100%;
 }
