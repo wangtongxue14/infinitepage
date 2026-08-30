@@ -11,7 +11,6 @@
     // 展开校训
     welcomeBtn.addEventListener('click', function() {
         if (tipBox.style.display === 'block') {
-            // 如果已经展开，就收起
             tipBox.style.display = 'none';
             welcomeBtn.textContent = '点击查看校训精神';
             welcomeBtn.style.background = '#2a5298';
@@ -48,7 +47,6 @@
     nav.parentNode.insertBefore(placeholder, nav);
 
     function updateNavOffset() {
-        // 用 getBoundingClientRect 计算更准确
         const rect = nav.getBoundingClientRect();
         return rect.top + window.pageYOffset;
     }
@@ -89,7 +87,6 @@
         navOffsetTop = updateNavOffset();
         handleScroll();
     });
-
 })();
 
 // ===== 平滑滚动导航 =====
