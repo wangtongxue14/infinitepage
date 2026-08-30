@@ -1,6 +1,5 @@
 /* ===== css/style.css ===== */
 
-/* ----- 页面整体布局 ----- */
 html,
 body {
     height: 100%;
@@ -18,7 +17,6 @@ body {
     font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
 }
 
-/* ----- 头部 ----- */
 header {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
@@ -37,7 +35,6 @@ header p {
     opacity: 0.9;
 }
 
-/* ----- 导航栏（默认样式） ----- */
 nav {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -48,7 +45,6 @@ nav {
     transition: box-shadow 0.3s ease;
 }
 
-/* ===== 导航栏固定状态（由JS添加类） ===== */
 nav.fixed {
     position: fixed;
     top: 0;
@@ -69,7 +65,6 @@ nav.fixed {
     }
 }
 
-/* ===== 导航栏固定时的占位元素 ===== */
 .nav-placeholder {
     display: block;
     height: 0;
@@ -100,7 +95,6 @@ nav a:hover {
     color: #2a5298;
 }
 
-/* ----- 容器 ----- */
 .container {
     max-width: 1200px;
     margin: 40px auto;
@@ -109,7 +103,6 @@ nav a:hover {
     width: 100%;
 }
 
-/* ----- 区块卡片 ----- */
 .section {
     background: #fff;
     border-radius: 12px;
@@ -126,7 +119,6 @@ nav a:hover {
     border-bottom: 3px solid #2a5298;
 }
 
-/* ----- 信息网格 ----- */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -150,7 +142,6 @@ nav a:hover {
     margin-bottom: 12px;
 }
 
-/* ----- 列表样式 ----- */
 .section ul {
     padding-left: 20px;
 }
@@ -160,7 +151,6 @@ nav a:hover {
     list-style: disc;
 }
 
-/* ----- 按钮 ----- */
 button {
     margin-top: 16px;
     padding: 10px 20px;
@@ -176,7 +166,6 @@ button:hover {
     background: #1e3c72;
 }
 
-/* ----- 提示框 ----- */
 .tip-box {
     margin-top: 12px;
     padding: 12px;
@@ -185,7 +174,6 @@ button:hover {
     color: #1e3c72;
 }
 
-/* ----- 页脚固定底部 ----- */
 footer {
     background-color: #1e3c72;
     color: white;
@@ -196,7 +184,6 @@ footer {
     width: 100%;
 }
 
-/* ----- 响应式 ----- */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
