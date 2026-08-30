@@ -1,47 +1,41 @@
 // ===== js/main.js =====
-// 主交互逻辑
 
-// ===== 校训展开/收起 =====
 (function() {
     const welcomeBtn = document.getElementById('welcomeBtn');
     const tipBox = document.getElementById('tipBox');
 
-    if (!welcomeBtn || !tipBox) return;
-
-    // 展开校训
-    welcomeBtn.addEventListener('click', function() {
-        if (tipBox.style.display === 'block') {
-            tipBox.style.display = 'none';
-            welcomeBtn.textContent = '点击查看校训精神';
-            welcomeBtn.style.background = '#2a5298';
-            welcomeBtn.style.color = '#fff';
-        } else {
-            tipBox.style.display = 'block';
-            welcomeBtn.textContent = '收起校训';
-            welcomeBtn.style.background = '#e8b931';
-            welcomeBtn.style.color = '#1e3c72';
-        }
-    });
-
-    // 通过关闭按钮收起
-    const closeBtn = document.getElementById('closeTipBtn');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            tipBox.style.display = 'none';
-            welcomeBtn.textContent = '点击查看校训精神';
-            welcomeBtn.style.background = '#2a5298';
-            welcomeBtn.style.color = '#fff';
+    if (welcomeBtn && tipBox) {
+        welcomeBtn.addEventListener('click', function() {
+            if (tipBox.style.display === 'block') {
+                tipBox.style.display = 'none';
+                welcomeBtn.textContent = '点击查看校训精神';
+                welcomeBtn.style.background = '#2a5298';
+                welcomeBtn.style.color = '#fff';
+            } else {
+                tipBox.style.display = 'block';
+                welcomeBtn.textContent = '收起校训';
+                welcomeBtn.style.background = '#e8b931';
+                welcomeBtn.style.color = '#1e3c72';
+            }
         });
+
+        const closeBtn = document.getElementById('closeTipBtn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                tipBox.style.display = 'none';
+                welcomeBtn.textContent = '点击查看校训精神';
+                welcomeBtn.style.background = '#2a5298';
+                welcomeBtn.style.color = '#fff';
+            });
+        }
     }
 })();
 
-// ===== 导航栏固定功能 =====
 (function() {
     const nav = document.getElementById('mainNav');
     if (!nav) return;
 
-    // 创建占位元素
     const placeholder = document.createElement('div');
     placeholder.className = 'nav-placeholder';
     nav.parentNode.insertBefore(placeholder, nav);
@@ -89,7 +83,6 @@
     });
 })();
 
-// ===== 平滑滚动导航 =====
 document.querySelectorAll('nav a').forEach(function(item) {
     if (item.getAttribute('href') && item.getAttribute('href').startsWith('#')) {
         item.addEventListener('click', function(e) {
@@ -108,7 +101,6 @@ document.querySelectorAll('nav a').forEach(function(item) {
     }
 });
 
-// ===== 页面加载打印日志 =====
 window.addEventListener('load', function() {
     console.log("光明中学官网加载完成");
 });
