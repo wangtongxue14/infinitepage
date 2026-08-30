@@ -2,27 +2,40 @@
 // 主交互逻辑
 
 // ===== 校训展开/收起 =====
-const welcomeBtn = document.getElementById('welcomeBtn');
-const tipBox = document.getElementById('tipBox');
-const closeTipBtn = document.getElementById('closeTipBtn');
+(function() {
+    const welcomeBtn = document.getElementById('welcomeBtn');
+    const tipBox = document.getElementById('tipBox');
 
-if (welcomeBtn && tipBox) {
+    if (!welcomeBtn || !tipBox) return;
+
+    // 展开校训
     welcomeBtn.addEventListener('click', function() {
-        tipBox.style.display = 'block';
-        welcomeBtn.textContent = '📖 校训已展开';
-        welcomeBtn.style.background = '#e8b931';
-        welcomeBtn.style.color = '#1e3c72';
+        if (tipBox.style.display === 'block') {
+            // 如果已经展开，就收起
+            tipBox.style.display = 'none';
+            welcomeBtn.textContent = '点击查看校训精神';
+            welcomeBtn.style.background = '#2a5298';
+            welcomeBtn.style.color = '#fff';
+        } else {
+            tipBox.style.display = 'block';
+            welcomeBtn.textContent = '收起校训';
+            welcomeBtn.style.background = '#e8b931';
+            welcomeBtn.style.color = '#1e3c72';
+        }
     });
-}
 
-if (closeTipBtn && tipBox) {
-    closeTipBtn.addEventListener('click', function() {
-        tipBox.style.display = 'none';
-        welcomeBtn.textContent = '点击查看校训精神';
-        welcomeBtn.style.background = '#2a5298';
-        welcomeBtn.style.color = '#fff';
-    });
-}
+    // 通过关闭按钮收起
+    const closeBtn = document.getElementById('closeTipBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            tipBox.style.display = 'none';
+            welcomeBtn.textContent = '点击查看校训精神';
+            welcomeBtn.style.background = '#2a5298';
+            welcomeBtn.style.color = '#fff';
+        });
+    }
+})();
 
 // ===== 导航栏固定功能 =====
 (function() {
@@ -34,10 +47,14 @@ if (closeTipBtn && tipBox) {
     placeholder.className = 'nav-placeholder';
     nav.parentNode.insertBefore(placeholder, nav);
 
-    // 获取导航栏初始位置
-    let navOffsetTop = nav.offsetTop;
+    function updateNavOffset() {
+        // 用 getBoundingClientRect 计算更准确
+        const rect = nav.getBoundingClientRect();
+        return rect.top + window.pageYOffset;
+    }
 
-    // 滚动处理函数
+    let navOffsetTop = updateNavOffset();
+
     function handleScroll() {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -52,7 +69,6 @@ if (closeTipBtn && tipBox) {
         }
     }
 
-    // 监听滚动事件（使用节流优化性能）
     let ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -64,14 +80,13 @@ if (closeTipBtn && tipBox) {
         }
     });
 
-    // 页面加载和窗口大小变化时重新计算位置
     window.addEventListener('load', function() {
-        navOffsetTop = nav.offsetTop;
+        navOffsetTop = updateNavOffset();
         handleScroll();
     });
 
     window.addEventListener('resize', function() {
-        navOffsetTop = nav.offsetTop;
+        navOffsetTop = updateNavOffset();
         handleScroll();
     });
 
@@ -79,7 +94,6 @@ if (closeTipBtn && tipBox) {
 
 // ===== 平滑滚动导航 =====
 document.querySelectorAll('nav a').forEach(function(item) {
-    // 只处理锚点链接（以 # 开头）
     if (item.getAttribute('href') && item.getAttribute('href').startsWith('#')) {
         item.addEventListener('click', function(e) {
             e.preventDefault();
@@ -99,5 +113,5 @@ document.querySelectorAll('nav a').forEach(function(item) {
 
 // ===== 页面加载打印日志 =====
 window.addEventListener('load', function() {
-    console.log("🏫 光明中学官网加载完成 🎉");
+    console.log("光明中学官网加载完成");
 });
