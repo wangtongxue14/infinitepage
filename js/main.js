@@ -7,7 +7,7 @@ const tipBox = document.getElementById('tipBox');
 const closeTipBtn = document.getElementById('closeTipBtn');
 
 if (welcomeBtn && tipBox) {
-    welcomeBtn.addEventListener('click', function () {
+    welcomeBtn.addEventListener('click', function() {
         tipBox.style.display = 'block';
         welcomeBtn.textContent = '📖 校训已展开';
         welcomeBtn.style.background = '#e8b931';
@@ -16,7 +16,7 @@ if (welcomeBtn && tipBox) {
 }
 
 if (closeTipBtn && tipBox) {
-    closeTipBtn.addEventListener('click', function () {
+    closeTipBtn.addEventListener('click', function() {
         tipBox.style.display = 'none';
         welcomeBtn.textContent = '点击查看校训精神';
         welcomeBtn.style.background = '#2a5298';
@@ -40,7 +40,7 @@ if (closeTipBtn && tipBox) {
     // 滚动处理函数
     function handleScroll() {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         if (scrollY >= navOffsetTop) {
             nav.classList.add('fixed');
             placeholder.classList.add('active');
@@ -78,10 +78,10 @@ if (closeTipBtn && tipBox) {
 })();
 
 // ===== 平滑滚动导航 =====
-document.querySelectorAll('nav a').forEach(function (item) {
+document.querySelectorAll('nav a').forEach(function(item) {
     // 只处理锚点链接（以 # 开头）
     if (item.getAttribute('href') && item.getAttribute('href').startsWith('#')) {
-        item.addEventListener('click', function (e) {
+        item.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetDom = document.querySelector(targetId);
@@ -98,6 +98,6 @@ document.querySelectorAll('nav a').forEach(function (item) {
 });
 
 // ===== 页面加载打印日志 =====
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
     console.log("🏫 光明中学官网加载完成 🎉");
 });
