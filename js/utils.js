@@ -9,7 +9,7 @@
  */
 function throttle(fn, delay = 100) {
     let timer = null;
-    return function (...args) {
+    return function(...args) {
         if (timer) return;
         timer = setTimeout(() => {
             fn.apply(this, args);
@@ -46,7 +46,7 @@ function $$(selector, context = document) {
  */
 function debounce(fn, wait = 200) {
     let timer;
-    return function (...args) {
+    return function(...args) {
         clearTimeout(timer);
         timer = setTimeout(() => fn.apply(this, args), wait);
     };
